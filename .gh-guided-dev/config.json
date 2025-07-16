@@ -1,0 +1,13 @@
+{
+  "projectName": "mytest",
+  "version": "1.0.0",
+  "initialized": "2025-07-16T02:04:32.190Z",
+  "defaults": {
+    "workflowType": "epic",
+    "guidanceLevel": "standard",
+    "githubSync": false
+  },
+  "server": {
+    "port": 3002
+  }
+}

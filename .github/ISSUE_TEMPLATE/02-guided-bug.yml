@@ -1,0 +1,155 @@
+name: 🐛 Guided Bug Investigation
+description: Start a structured bug investigation and resolution workflow
+title: "[BUG] "
+labels: ["bug", "workflow:guided", "phase:triage", "guided-dev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Guided Bug Investigation Workflow
+        
+        This template starts a structured bug investigation process with guided methodology.
+        
+        **Phases:** Triage → Investigation → Reproduction → Resolution → Verification
+        
+        The guided development system will help you through:
+        - ✅ Systematic root cause analysis
+        - ✅ Structured reproduction steps
+        - ✅ Solution validation
+        - ✅ Quality verification
+
+  - type: input
+    id: bug_title
+    attributes:
+      label: Bug Title
+      description: Clear, concise description of the bug
+      placeholder: "Login button not working on mobile devices"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug Description
+      description: Detailed description of the issue
+      placeholder: "When users tap the login button on mobile devices, nothing happens. The button appears to be unresponsive..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the bug
+      placeholder: |
+        1. Open the application on a mobile device
+        2. Navigate to the login page
+        3. Enter valid credentials
+        4. Tap the login button
+        5. Observe that nothing happens
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen?
+      placeholder: "User should be logged in and redirected to the dashboard"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: "Nothing happens when the login button is tapped"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: How severe is this bug?
+      options:
+        - Critical (system down, security issue)
+        - High (major functionality broken)
+        - Medium (functionality impaired)
+        - Low (minor inconvenience)
+      default: 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Details
+      description: Environment where the bug occurs
+      placeholder: |
+        - Device: iPhone 12
+        - OS: iOS 15.6
+        - Browser: Safari
+        - App Version: 2.1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_logs
+    attributes:
+      label: Error Logs/Screenshots
+      description: Any error messages, logs, or screenshots
+      placeholder: "Paste error logs here or describe what you see..."
+
+  - type: dropdown
+    id: guidance_level
+    attributes:
+      label: Investigation Guidance
+      description: How much guidance would you like for the investigation?
+      options:
+        - Standard (recommended)
+        - Comprehensive (detailed analysis)
+        - Minimal (experienced debugger)
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: investigation_preferences
+    attributes:
+      label: Investigation Preferences
+      description: Select your preferences for this bug investigation
+      options:
+        - label: Enable GitHub synchronization
+          required: false
+        - label: Auto-assign to appropriate team members
+          required: false
+        - label: Include performance analysis
+          required: false
+        - label: Generate regression tests
+          required: false
+        - label: Track related issues
+          required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any additional context about the bug
+      placeholder: "User reports, related issues, recent changes..."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🔍 Investigation Process
+        
+        1. **Triage**: Assess severity and assign priority
+        2. **Investigation**: Systematic root cause analysis
+        3. **Reproduction**: Create reliable reproduction steps
+        4. **Resolution**: Implement and validate fix
+        5. **Verification**: Confirm fix works and doesn't break anything else
+        
+        The guided system will provide structured analysis tools and quality gates throughout the investigation process.

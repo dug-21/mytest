@@ -1,0 +1,124 @@
+name: 🎯 Guided EPIC Development
+description: Start a structured EPIC development workflow with AI-guided methodology
+title: "[EPIC] "
+labels: ["epic", "workflow:guided", "phase:vision", "guided-dev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎯 Guided EPIC Development Workflow
+        
+        This template starts a structured 5-phase EPIC development process with AI guidance.
+        
+        **Phases:** Vision → Concept → Interface → Success → Handoff
+        
+        The guided development system will help you through each phase with:
+        - ✅ Structured analysis (Five Whys methodology)
+        - ✅ Mockup cycles and iteration
+        - ✅ Specification generation
+        - ✅ Quality gates and validation
+        - ✅ AI-assisted coordination
+
+  - type: input
+    id: epic_title
+    attributes:
+      label: EPIC Title
+      description: Clear, concise title for this EPIC
+      placeholder: "Build user authentication system"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: What problem are we solving? (Will be refined through guided analysis)
+      placeholder: "Users currently cannot securely access their accounts, leading to security concerns and poor user experience..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: target_users
+    attributes:
+      label: Target Users
+      description: Who will benefit from this EPIC? (One per line)
+      placeholder: |
+        - End users who need secure account access
+        - System administrators managing user accounts
+        - Developers integrating with the authentication system
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success Metrics
+      description: How will we measure success?
+      placeholder: |
+        - 95% of users can successfully log in within 30 seconds
+        - Zero security breaches related to authentication
+        - Developer integration time reduced by 50%
+    validations:
+      required: true
+
+  - type: textarea
+    id: vision
+    attributes:
+      label: Vision (Optional)
+      description: High-level vision or desired outcome
+      placeholder: "Create a seamless, secure authentication experience that users trust and developers love to integrate with..."
+
+  - type: dropdown
+    id: guidance_level
+    attributes:
+      label: Guidance Level
+      description: How much guidance would you like throughout the process?
+      options:
+        - Standard (recommended)
+        - Comprehensive (new to methodology)
+        - Minimal (experienced teams)
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: preferences
+    attributes:
+      label: Workflow Preferences
+      description: Select your preferences for this EPIC
+      options:
+        - label: Enable GitHub synchronization
+          required: false
+        - label: Auto-transition between phases (with approval)
+          required: false
+        - label: Include mockup cycles
+          required: false
+        - label: Generate technical specifications
+          required: false
+        - label: Track implementation progress
+          required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any additional context, constraints, or requirements
+      placeholder: "Technical constraints, stakeholder requirements, timeline considerations..."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🚀 What happens next?
+        
+        1. **Automated Setup**: The guided development system will create your EPIC workflow
+        2. **Phase 1 - Vision**: You'll be guided through Five Whys analysis to refine the problem
+        3. **Phase 2 - Concept**: Develop and validate the solution concept
+        4. **Phase 3 - Interface**: Create mockups and define user interactions
+        5. **Phase 4 - Success**: Finalize success criteria and acceptance tests
+        6. **Phase 5 - Handoff**: Generate specifications and implementation guidance
+        
+        The system will provide structured guidance, quality gates, and AI assistance throughout each phase.
+        
+        **Need help?** Check the [guided development documentation](https://github.com/your-org/gh-guided-dev) for more information.

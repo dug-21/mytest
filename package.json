@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gh-guided-dev": "file:../devtemplate/gh-guided-dev/gh-guided-dev-1.0.0.tgz"
+  }
+}

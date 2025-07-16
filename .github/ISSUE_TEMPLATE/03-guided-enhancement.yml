@@ -1,0 +1,177 @@
+name: ✨ Guided Enhancement Workflow
+description: Start a structured enhancement development process
+title: "[ENHANCEMENT] "
+labels: ["enhancement", "workflow:guided", "phase:proposal", "guided-dev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Guided Enhancement Workflow
+        
+        This template starts a structured enhancement development process with guided methodology.
+        
+        **Phases:** Proposal → Design → Approval → Implementation → Review
+        
+        The guided development system provides:
+        - ✅ Impact analysis and validation
+        - ✅ Design iteration and feedback
+        - ✅ Stakeholder approval process
+        - ✅ Implementation tracking
+
+  - type: input
+    id: enhancement_title
+    attributes:
+      label: Enhancement Title
+      description: Clear, concise title for this enhancement
+      placeholder: "Add dark mode support to the application"
+    validations:
+      required: true
+
+  - type: textarea
+    id: enhancement_description
+    attributes:
+      label: Enhancement Description
+      description: Detailed description of the proposed enhancement
+      placeholder: "Add a dark mode option to the application that allows users to switch between light and dark themes..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_benefit
+    attributes:
+      label: User Benefit
+      description: How will this enhancement benefit users?
+      placeholder: "Users will be able to use the application more comfortably in low-light environments, reducing eye strain..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_limitation
+    attributes:
+      label: Current Limitation
+      description: What current limitation or pain point does this address?
+      placeholder: "Currently, users have no option to adjust the theme, making the application difficult to use in dark environments..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: High-level description of how you'd like to solve this
+      placeholder: "Add a theme toggle in the settings menu that switches between light and dark CSS themes..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this enhancement?
+      options:
+        - High (critical for user experience)
+        - Medium (important improvement)
+        - Low (nice to have)
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this enhancement is?
+      options:
+        - Low (simple changes)
+        - Medium (moderate effort)
+        - High (significant development)
+        - Unknown (needs investigation)
+      default: 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What criteria must be met for this enhancement to be considered complete?
+      placeholder: |
+        - [ ] Theme toggle is available in settings
+        - [ ] Dark mode applies to all UI components
+        - [ ] User preference is saved and persists
+        - [ ] No performance impact on theme switching
+    validations:
+      required: true
+
+  - type: textarea
+    id: target_users
+    attributes:
+      label: Target Users
+      description: Who will primarily benefit from this enhancement?
+      placeholder: |
+        - Users who work in low-light environments
+        - Users with visual sensitivities
+        - Users who prefer dark interfaces
+    validations:
+      required: true
+
+  - type: dropdown
+    id: guidance_level
+    attributes:
+      label: Development Guidance
+      description: How much guidance would you like for the development process?
+      options:
+        - Standard (recommended)
+        - Comprehensive (detailed planning)
+        - Minimal (experienced team)
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: enhancement_preferences
+    attributes:
+      label: Enhancement Preferences
+      description: Select your preferences for this enhancement
+      options:
+        - label: Enable GitHub synchronization
+          required: false
+        - label: Require stakeholder approval
+          required: false
+        - label: Include user testing phase
+          required: false
+        - label: Generate technical specifications
+          required: false
+        - label: Track implementation milestones
+          required: false
+        - label: Include performance impact analysis
+          required: false
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints & Considerations
+      description: Any technical constraints, dependencies, or special considerations
+      placeholder: "Browser compatibility requirements, performance constraints, design system compliance..."
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Other approaches you've considered
+      placeholder: "Alternative approaches, workarounds, or competing solutions..."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🚀 Enhancement Process
+        
+        1. **Proposal**: Validate the enhancement idea and gather requirements
+        2. **Design**: Create detailed design and implementation plan
+        3. **Approval**: Get stakeholder sign-off on the approach
+        4. **Implementation**: Build the enhancement with guided milestones
+        5. **Review**: Validate the implementation meets requirements
+        
+        The guided system will help with impact analysis, stakeholder coordination, and implementation tracking.
