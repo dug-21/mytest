@@ -1,7 +1,6 @@
 node_modules/
 
-.env
-
+.env*
 
 
 # Claude Flow generated files
