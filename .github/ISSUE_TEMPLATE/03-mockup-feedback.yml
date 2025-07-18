@@ -1,0 +1,246 @@
+name: "🎨 Mockup Feedback & Review"
+description: "Collect feedback on wireframes, mockups, and design concepts"
+title: "[MOCKUP] Feedback for: "
+labels: ["mockup", "design-review", "feedback", "hive-mind"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🎨 Mockup Feedback Template
+        
+        **Purpose:** Get structured feedback on designs before we start coding.
+        
+        **For junior developers:** Don't worry if you're not a designer! Your developer perspective is valuable. Think about feasibility, user experience, and technical concerns.
+        
+        ---
+  
+  - type: input
+    id: epic-reference
+    attributes:
+      label: "🔗 Related EPIC/Issue"
+      description: "Link to the EPIC or issue this mockup supports (e.g., #123)"
+      placeholder: "#123"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mockup-type
+    attributes:
+      label: "🖼️ Mockup Type"
+      description: "What kind of design are we reviewing?"
+      options:
+        - "📝 Wireframes - Basic layout and flow"
+        - "🎨 High-fidelity mockups - Detailed visual design"
+        - "🔄 User flow diagrams - Step-by-step interactions"
+        - "📱 Mobile designs - Mobile-specific layouts"
+        - "🖥️ Desktop designs - Desktop-specific layouts"
+        - "🏗️ Architecture diagrams - System/component design"
+        - "🧩 Component designs - Individual UI components"
+    validations:
+      required: true
+
+  - type: textarea
+    id: mockup-links
+    attributes:
+      label: "🔗 Mockup Links & Attachments"
+      description: "Provide links to Figma, images, or attach files below"
+      placeholder: |
+        **Figma Link:** https://figma.com/file/...
+        
+        **Image Files:** Drag and drop images below or link to them:
+        • Main dashboard: [link]
+        • User settings: [link]
+        • Mobile version: [link]
+        
+        **Other Tools:**
+        • Miro board: [link]
+        • Sketch file: [link]
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-goals
+    attributes:
+      label: "🎯 Design Goals & Requirements"
+      description: "What are we trying to achieve with this design?"
+      placeholder: |
+        **User Goals:**
+        • Quick account creation (under 2 minutes)
+        • Clear trust signals throughout
+        • Mobile-first responsive design
+        
+        **Business Goals:**
+        • Increase conversion by 30%
+        • Reduce support tickets
+        • Match brand guidelines
+        
+        **Technical Requirements:**
+        • Works on IE11+ (if needed)
+        • Accessible (WCAG 2.1 AA)
+        • Fast loading (< 3 seconds)
+
+  - type: checkboxes
+    id: feedback-areas
+    attributes:
+      label: "🔍 Feedback Areas (check all that apply)"
+      description: "What aspects need review?"
+      options:
+        - label: "🎨 Visual design & aesthetics"
+        - label: "👤 User experience & usability"
+        - label: "📱 Mobile responsiveness"
+        - label: "♿ Accessibility considerations"
+        - label: "🔧 Technical feasibility"
+        - label: "📏 Brand consistency"
+        - label: "⚡ Performance implications"
+        - label: "🔒 Security & privacy concerns"
+        - label: "📊 Analytics & tracking setup"
+        - label: "🌍 Internationalization needs"
+
+  - type: textarea
+    id: positive-feedback
+    attributes:
+      label: "✅ What's Working Well"
+      description: "What do you like about this design? What should we keep?"
+      placeholder: |
+        **Strong Points:**
+        • Clean, modern layout that builds trust
+        • Clear call-to-action buttons
+        • Good use of white space
+        • Logical flow from landing to completion
+        
+        **Specific Elements:**
+        • Progress indicator helps users understand where they are
+        • Social login options reduce friction
+        • Error states are clear and helpful
+
+  - type: textarea
+    id: concerns-issues
+    attributes:
+      label: "⚠️ Concerns & Issues"
+      description: "What might be problematic? What needs improvement?"
+      placeholder: |
+        **Usability Concerns:**
+        • Form might be too long for mobile screens
+        • Password requirements not visible until error
+        • Back button behavior unclear
+        
+        **Technical Concerns:**
+        • Complex animations might affect performance
+        • Some components might be hard to implement responsively
+        • Missing loading states for slow connections
+        
+        **Accessibility Issues:**
+        • Color contrast might not meet WCAG standards
+        • No focus indicators visible in mockups
+        • Form labels might be too small
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: "💡 Suggestions & Improvements"
+      description: "How can we make this better? Be specific!"
+      placeholder: |
+        **Immediate Improvements:**
+        • Add progress indicator to multi-step forms
+        • Include loading states for all async actions
+        • Increase color contrast on secondary text
+        
+        **Consider Testing:**
+        • A/B test single page vs. multi-step form
+        • Test different CTA button colors
+        • User test the password creation flow
+        
+        **Future Enhancements:**
+        • Dark mode version
+        • Animation to guide user attention
+        • Contextual help tooltips
+
+  - type: textarea
+    id: technical-considerations
+    attributes:
+      label: "🔧 Technical Implementation Notes"
+      description: "Developer perspective - how complex is this to build?"
+      placeholder: |
+        **Feasibility Assessment:**
+        • Most elements are straightforward to implement
+        • Custom date picker might need third-party library
+        • Animations require careful performance consideration
+        
+        **Potential Challenges:**
+        • Cross-browser testing for complex layouts
+        • Mobile keyboard interactions
+        • Real-time validation UX
+        
+        **Suggested Technologies:**
+        • React Hook Form for validation
+        • Framer Motion for animations
+        • Reach UI for accessibility
+
+  - type: textarea
+    id: user-testing-plan
+    attributes:
+      label: "👥 User Testing Recommendations"
+      description: "What should we test with real users before building?"
+      placeholder: |
+        **Key Questions to Test:**
+        • Can users complete signup without assistance?
+        • Do they understand the progress through the flow?
+        • Are error messages clear and actionable?
+        
+        **Testing Methods:**
+        • 5-user usability testing sessions
+        • A/B test key variations (if possible)
+        • Accessibility testing with screen readers
+        
+        **Success Metrics:**
+        • 90%+ task completion rate
+        • Average time under 2 minutes
+        • No major usability issues identified
+
+  - type: dropdown
+    id: approval-status
+    attributes:
+      label: "✅ Approval Status"
+      description: "What's your recommendation?"
+      options:
+        - "🟢 Approved - Ready for development"
+        - "🟡 Approved with minor changes"
+        - "🟠 Needs significant revisions"
+        - "🔴 Major concerns - back to drawing board"
+        - "❓ Need more information to decide"
+
+  - type: textarea
+    id: next-steps
+    attributes:
+      label: "➡️ Recommended Next Steps"
+      description: "What should happen before we start coding?"
+      placeholder: |
+        **Before Development:**
+        1. Address color contrast issues
+        2. Create missing error state designs
+        3. Add mobile interaction details
+        4. User test the revised flow
+        
+        **For Development:**
+        1. Break into smaller components
+        2. Plan responsive breakpoints
+        3. Identify third-party libraries needed
+        4. Create technical specifications
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **📝 Design Iteration**: Designer addresses feedback and creates revised mockups
+        2. **👥 Stakeholder Review**: Key stakeholders review and approve changes
+        3. **🧪 User Testing**: If needed, test key flows with real users
+        4. **📋 Story Creation**: Design is broken down into implementable user stories
+        5. **🚀 Development**: Stories are assigned to development sprints
+        
+        **For developers:** Your technical feedback is crucial! Don't hesitate to flag implementation concerns early.
+        
+        **Auto-labels:** `mockup`, `design-review`, `feedback`, `hive-mind`

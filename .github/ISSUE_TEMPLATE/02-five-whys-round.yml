@@ -1,0 +1,210 @@
+name: "❓ 5 Whys Analysis Round"
+description: "Deep dive questioning to understand the root problem and solution"
+title: "[5 WHYS] Round for EPIC: "
+labels: ["5-whys", "analysis", "hive-mind", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ❓ 5 Whys Analysis Template
+        
+        **Purpose:** This helps us dig deeper into WHY we're building something and ensure we're solving the right problem.
+        
+        **For junior developers:** The 5 Whys technique was invented by Toyota to find root causes. We ask "why" 5 times to get to the heart of issues.
+        
+        ---
+  
+  - type: input
+    id: epic-reference
+    attributes:
+      label: "🔗 Related EPIC Issue"
+      description: "Link to the EPIC this analysis is for (e.g., #123)"
+      placeholder: "#123"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: analysis-round
+    attributes:
+      label: "🔄 Analysis Round"
+      description: "Which round of questioning is this?"
+      options:
+        - "Round 1: Initial Problem Analysis"
+        - "Round 2: Solution Validation"
+        - "Round 3: Technical Approach"
+        - "Round 4: User Experience Deep Dive"
+        - "Round 5: Business Impact Validation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context-summary
+    attributes:
+      label: "📋 Context Summary"
+      description: "Briefly summarize what we know so far"
+      placeholder: |
+        From the EPIC and previous rounds, we understand:
+        • The main problem is...
+        • The proposed solution involves...
+        • Key stakeholders are...
+        • Success looks like...
+
+  - type: textarea
+    id: why-question-1
+    attributes:
+      label: "❓ Why #1"
+      description: "The first 'why' question and its answer"
+      placeholder: |
+        **Question:** Why do users abandon the signup process?
+        
+        **Answer:** Because it takes too long and asks for too much information upfront.
+        
+        **Evidence:** Analytics show 60% drop-off after the first form page.
+
+  - type: textarea
+    id: why-question-2
+    attributes:
+      label: "❓ Why #2"
+      description: "Dig deeper - why is that happening?"
+      placeholder: |
+        **Question:** Why does asking for information upfront cause abandonment?
+        
+        **Answer:** Users don't trust us yet and don't want to share personal data before seeing value.
+        
+        **Evidence:** User interviews revealed trust concerns and "too much work" feedback.
+
+  - type: textarea
+    id: why-question-3
+    attributes:
+      label: "❓ Why #3"
+      description: "Keep going deeper..."
+      placeholder: |
+        **Question:** Why don't users trust us during signup?
+        
+        **Answer:** Our brand is new and the signup form looks generic/suspicious.
+        
+        **Evidence:** A/B tests show trust badges and testimonials improve conversion.
+
+  - type: textarea
+    id: why-question-4
+    attributes:
+      label: "❓ Why #4"
+      description: "Almost there..."
+      placeholder: |
+        **Question:** Why does our signup form look suspicious?
+        
+        **Answer:** We haven't invested in UX design and security messaging.
+        
+        **Evidence:** Heuristic analysis shows we violate several trust principles.
+
+  - type: textarea
+    id: why-question-5
+    attributes:
+      label: "❓ Why #5"
+      description: "The final 'why' - get to the root!"
+      placeholder: |
+        **Question:** Why haven't we invested in signup UX and trust messaging?
+        
+        **Answer:** We prioritized feature development over conversion optimization.
+        
+        **Evidence:** Product roadmap shows no UX resources allocated to onboarding.
+
+  - type: textarea
+    id: root-cause
+    attributes:
+      label: "🎯 Root Cause Identified"
+      description: "What's the real underlying issue?"
+      placeholder: |
+        **Root Cause:** Lack of dedicated UX resources for the critical onboarding experience.
+        
+        **This means:** We need to solve both the technical signup flow AND the trust/UX issues.
+
+  - type: textarea
+    id: insights
+    attributes:
+      label: "💡 Key Insights & Implications"
+      description: "What did we learn? How does this change our approach?"
+      placeholder: |
+        **Insights:**
+        • Technical solution alone won't fix the problem
+        • Need UX design resources, not just engineering
+        • Trust-building is as important as functionality
+        • Progressive disclosure might be better than shorter forms
+        
+        **Implications for EPIC:**
+        • Add UX designer to stakeholders
+        • Include trust-building elements in scope
+        • Consider phased rollout with A/B testing
+        • Budget for professional design assets
+
+  - type: textarea
+    id: questions-raised
+    attributes:
+      label: "❓ New Questions Raised"
+      description: "What new questions emerged from this analysis?"
+      placeholder: |
+        • Should we hire a UX contractor or delay until we have internal resources?
+        • What trust signals work best for our target market?
+        • How do successful competitors handle first-time user onboarding?
+        • Should we research progressive disclosure vs. single-page signup?
+
+  - type: textarea
+    id: recommended-actions
+    attributes:
+      label: "🚀 Recommended Next Actions"
+      description: "Based on this analysis, what should we do?"
+      placeholder: |
+        **Immediate Actions:**
+        1. Add UX research to EPIC scope and timeline
+        2. Benchmark competitor signup flows
+        3. Interview 5-10 users who abandoned signup
+        4. Create wireframes for trust-building elements
+        
+        **Before Development:**
+        1. A/B test current form with trust signals
+        2. Create high-fidelity mockups
+        3. Validate approach with user testing
+
+  - type: checkboxes
+    id: validation-needed
+    attributes:
+      label: "✅ Validation Required"
+      description: "What needs to be validated before proceeding?"
+      options:
+        - label: "User interviews to confirm insights"
+        - label: "Competitive analysis of signup flows"
+        - label: "Technical feasibility of proposed changes"
+        - label: "Resource availability (UX designer)"
+        - label: "Budget approval for design work"
+        - label: "Stakeholder alignment on new scope"
+        - label: "A/B testing plan approval"
+        - label: "Legal review of data collection changes"
+
+  - type: dropdown
+    id: confidence-level
+    attributes:
+      label: "🎯 Confidence in Analysis"
+      description: "How confident are we in these insights?"
+      options:
+        - "🟢 High - Strong evidence and clear patterns"
+        - "🟡 Medium - Good evidence but some assumptions"
+        - "🟠 Low - Limited evidence, needs more research"
+        - "🔴 Very Low - Mostly assumptions, requires validation"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **📊 Analysis Review**: The hive mind will review these insights
+        2. **🔍 Evidence Gathering**: Missing evidence will be researched
+        3. **💬 Stakeholder Input**: Key people will be consulted
+        4. **📝 EPIC Update**: The original EPIC will be updated with these insights
+        5. **➡️ Next Round**: If needed, another 5 Whys round will be scheduled
+        
+        **Remember:** It's okay if this analysis reveals the original EPIC needs major changes. That's the point - we want to solve the right problem the right way!
+        
+        **Auto-labels:** `5-whys`, `analysis`, `hive-mind`, `needs-review`

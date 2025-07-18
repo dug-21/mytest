@@ -1,0 +1,182 @@
+name: "🏔️ EPIC: Major Initiative"
+description: "Create an EPIC for large-scale features requiring multiple sprints"
+title: "[EPIC] "
+labels: ["epic", "needs-analysis", "hive-mind"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🏔️ EPIC Template
+        
+        **Welcome!** This template helps you capture large initiatives that need breaking down into smaller pieces.
+        
+        **Perfect for junior developers:** Don't worry about getting everything perfect! The hive mind will help refine this.
+        
+        ---
+  
+  - type: input
+    id: epic-title
+    attributes:
+      label: "📝 EPIC Title"
+      description: "What's the big picture goal? (e.g., 'User Authentication System', 'Mobile App Dashboard')"
+      placeholder: "Complete user onboarding experience"
+    validations:
+      required: true
+
+  - type: textarea
+    id: business-value
+    attributes:
+      label: "💰 Business Value & Why"
+      description: "Why does this matter? What problem does it solve? What's the impact?"
+      placeholder: |
+        • Reduces user drop-off by 30%
+        • Saves customer support 10 hours/week
+        • Enables new revenue stream
+        • Improves user experience
+      value: "• "
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: "👥 High-Level User Stories"
+      description: "Who benefits and how? Use 'As a [user], I want [goal] so that [benefit]'"
+      placeholder: |
+        • As a new user, I want to quickly sign up so that I can start using the app immediately
+        • As a returning user, I want secure login so that my data is protected
+        • As an admin, I want to manage user accounts so that I can provide support
+      value: "• As a "
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: "🔍 Current State (What exists now?)"
+      description: "What's the current situation? What works? What doesn't?"
+      placeholder: |
+        Currently users have to:
+        • Email us to create accounts
+        • Remember complex passwords
+        • Contact support for password resets
+        
+        Pain points:
+        • 60% abandon during manual signup
+        • 20+ support tickets/week for password issues
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: "🎯 Success Criteria (How do we know it's working?)"
+      description: "What does 'done' look like? Be specific with metrics where possible."
+      placeholder: |
+        • 90% of users complete signup in under 2 minutes
+        • Password reset tickets drop by 80%
+        • User satisfaction score increases to 4.5/5
+        • Zero security incidents in first 3 months
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: "⚠️ Constraints & Dependencies"
+      description: "What limitations do we have? What needs to happen first?"
+      placeholder: |
+        Constraints:
+        • Must be GDPR compliant
+        • Budget: $10k max
+        • Launch deadline: Q2 2024
+        
+        Dependencies:
+        • Legal approval for data handling
+        • Integration with existing user database
+        • Mobile app updates
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "🚨 Priority Level"
+      description: "How urgent is this EPIC?"
+      options:
+        - "🔥 Critical - Blocking other work"
+        - "🚀 High - Important for next quarter"
+        - "📈 Medium - Nice to have soon"
+        - "🔮 Low - Future consideration"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: "🧩 Estimated Complexity"
+      description: "Best guess - the hive mind will help refine this"
+      options:
+        - "🟢 Simple - 1-2 sprints, few dependencies"
+        - "🟡 Medium - 3-5 sprints, some complexity"
+        - "🟠 Complex - 6-10 sprints, many moving parts"
+        - "🔴 Very Complex - 10+ sprints, high risk"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: stakeholders
+    attributes:
+      label: "👤 Key Stakeholders (who needs to be involved?)"
+      description: "Select all that apply"
+      options:
+        - label: "Product Manager"
+        - label: "Engineering Lead"
+        - label: "UX/UI Designer"
+        - label: "QA Engineer"
+        - label: "DevOps Engineer"
+        - label: "Security Team"
+        - label: "Legal/Compliance"
+        - label: "Customer Support"
+        - label: "Marketing"
+        - label: "Sales"
+
+  - type: textarea
+    id: initial-thoughts
+    attributes:
+      label: "💭 Initial Ideas & Approach"
+      description: "Any early thoughts on how to tackle this? Don't overthink it!"
+      placeholder: |
+        Rough ideas:
+        • Use OAuth for social login
+        • Email verification for security
+        • Progressive disclosure for sign-up form
+        • A/B test different flows
+        
+        Technologies to consider:
+        • Auth0 vs custom solution
+        • React Hook Form for validation
+        • SendGrid for emails
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: "❓ Questions & Unknowns"
+      description: "What questions do you have? The hive mind will help investigate!"
+      placeholder: |
+        • Should we support social login (Google, GitHub, etc.)?
+        • What's our password policy?
+        • Do we need two-factor authentication?
+        • How do we handle user data migration?
+        • What about accessibility requirements?
+      value: "• "
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **🧠 Hive Mind Analysis**: Our AI agents will analyze this EPIC and ask clarifying questions
+        2. **❓ 5 Whys Process**: We'll dig deeper into the problem and solution
+        3. **🎨 Mockup Creation**: Visual representations will be created if needed
+        4. **📋 Story Breakdown**: This EPIC will be decomposed into Features → Stories → Tasks
+        5. **🚀 Development**: Swarm agents will coordinate implementation
+        
+        **For junior developers:** Don't worry if you missed something! The process is designed to help you learn and improve. The hive mind will guide you through refining this EPIC.
+        
+        **Labels will be auto-added:** `epic`, `needs-analysis`, `hive-mind`

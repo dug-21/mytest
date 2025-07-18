@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "gh-guided-dev": "file:../devtemplate/gh-guided-dev-v2/gh-guided-dev-2.0.0.tgz"
+    "gh-guided-dev": "file:../devtemplate/gh-guided-dev-v2/gh-guided-dev-3.0.1.tgz"
   }
 }
