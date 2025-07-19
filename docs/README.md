@@ -61,9 +61,33 @@ Documentation for the extensible workflow system:
 - Dynamic phase management
 - Integration with enhanced polling server
 
+#### 8. **EPIC_IMPLEMENTATION_GUIDE.md** (NEW)
+Comprehensive guide for using the enhanced epic workflow:
+- Living Current System documentation
+- EPIC UPDATE comment formats
+- Phase tracking instructions
+- Troubleshooting guide
+- Best practices for teams
+
+#### 9. **EPIC_QUICK_REFERENCE.md** (NEW)
+Printable quick reference card for epic workflows:
+- Essential commands
+- Update format templates
+- Phase overview
+- Daily checklist
+- Visual indicators
+
+#### 10. **EPIC_UPDATE_EXAMPLES.md** (NEW)
+Real-world examples of EPIC UPDATE comments:
+- Architecture decisions
+- Phase completions
+- Scope changes
+- Blocker tracking
+- Discovery documentation
+
 ### Migration Guides
 
-#### 8. **../MIGRATION-GUIDE.md**
+#### 11. **../MIGRATION-GUIDE.md**
 Guide for migrating from hardcoded to extensible workflows:
 - What changed in the system
 - How to use YAML configuration
@@ -135,6 +159,14 @@ When updating these documentation files:
 5. Update this README if structure changes
 
 ## 📝 Version History
+
+- **v2.2.0**: Enhanced EPIC workflow with living documentation
+  - Added Current System tracking with automatic updates
+  - Implemented EPIC UPDATE comment parsing
+  - Added phased implementation recommendations
+  - Created comprehensive implementation guide
+  - Added quick reference card and examples
+  - Made 5 Whys analysis mandatory
 
 - **v2.1.0**: Extensible workflow system
   - Replaced hardcoded workflows with YAML configuration
