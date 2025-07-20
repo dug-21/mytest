@@ -1,0 +1,158 @@
+name: "🎯 EPIC: Interface-Driven Initiative"
+description: "Create an EPIC using the enhanced interface-driven methodology with living documentation"
+title: "[EPIC] "
+labels: ["epic", "epic-current-system", "phase-0-research", "interface-driven"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <!-- workflow-type: epic -->
+        # 🎯 Enhanced EPIC Template - Interface-Driven Development
+        
+        **This EPIC will use:**
+        - **Living Documentation**: Updates tracked via "EPIC UPDATE:" comments
+        - **Interface-First Design**: Mockups → Interface Specs → Architecture
+        - **Phased Implementation**: AI-recommended phases at handoff
+        - **Mandatory 5 Whys**: Deep problem analysis required
+        
+        ---
+  
+  - type: input
+    id: epic-title
+    attributes:
+      label: "📝 EPIC Title"
+      description: "Clear, outcome-focused title for this major initiative"
+      placeholder: "Modern Task Management System for Remote Teams"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: "🔍 Problem Statement"
+      description: "What problem are we solving? Who experiences it? What's the impact?"
+      placeholder: |
+        Remote teams struggle with task visibility and coordination across time zones.
+        
+        WHO: Distributed teams of 5-50 people
+        PAIN: Tasks get lost, priorities unclear, timezone friction
+        IMPACT: 30% productivity loss, missed deadlines, team frustration
+      value: |
+        WHO: 
+        PAIN: 
+        IMPACT: 
+    validations:
+      required: true
+
+  - type: textarea
+    id: vision-statement
+    attributes:
+      label: "🚀 Vision Statement"
+      description: "What does success look like? Paint a picture of the ideal future state."
+      placeholder: |
+        A task management system that feels as natural as working in the same office.
+        Teams seamlessly coordinate across timezones with full visibility.
+        No task falls through the cracks, everyone knows priorities.
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-types
+    attributes:
+      label: "👥 User Types & Interfaces"
+      description: "Who will interact with this system? What interfaces do they need?"
+      placeholder: |
+        • Team Members: Task dashboard, mobile app, notifications
+        • Team Leads: Analytics dashboard, resource view, reports
+        • Admins: Settings panel, user management, integrations
+        • External Systems: REST API, webhooks, data exports
+      value: |
+        • 
+        • 
+        • 
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: "📊 Success Metrics"
+      description: "How will we measure success? Be specific and quantifiable."
+      placeholder: |
+        • Task completion rate increases from 70% to 95%
+        • Average response time to urgent tasks < 2 hours
+        • User satisfaction score > 4.5/5
+        • 90% team adoption within 30 days
+      value: |
+        • 
+        • 
+        • 
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: "⚠️ Constraints & Considerations"
+      description: "Technical, business, or resource constraints we must work within"
+      placeholder: |
+        • Budget: $50k max
+        • Timeline: 3 months to MVP
+        • Tech: Must integrate with existing Slack/Jira
+        • Security: SOC2 compliance required
+      value: |
+        • Budget: 
+        • Timeline: 
+        • Tech: 
+        • Other: 
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: "🎚️ Estimated Complexity"
+      description: "Initial assessment of implementation complexity"
+      options:
+        - "Low (2-4 weeks, 1-2 developers)"
+        - "Medium (1-3 months, 2-4 developers)"
+        - "High (3-6 months, 4-8 developers)"
+        - "Very High (6+ months, full team)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: epic-checklist
+    attributes:
+      label: "✅ EPIC Readiness Checklist"
+      description: "Confirm you understand the EPIC process"
+      options:
+        - label: "I understand this will go through 6 phases of refinement"
+          required: true
+        - label: "I know Phase 1 requires mandatory 5 Whys analysis"
+          required: true
+        - label: "I understand mockups will drive interface specifications"
+          required: true
+        - label: "I know the system will maintain living documentation via comments"
+          required: true
+        - label: "I understand AI will recommend implementation phases at handoff"
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 📋 What Happens Next?
+        
+        1. **Phase 0**: AI analyzes feasibility and gathers initial research
+        2. **Phase 1**: Mandatory 5 Whys analysis to find root problems
+        3. **Phase 2**: Create mockups and extract interface specifications
+        4. **Phase 3**: Design architecture to implement the interfaces
+        5. **Phase 4**: Define detailed success criteria and acceptance tests
+        6. **Phase 5**: AI recommends 2-4 implementation phases
+        
+        **Living Documentation**: Use "EPIC UPDATE:" comments to maintain current state
+        
+        ---
+        
+        💡 **Tip**: The more context you provide, the better the AI can help refine your epic!

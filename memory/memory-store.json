@@ -1,0 +1,10 @@
+{
+  "default": [
+    {
+      "key": "workflow/epic/wf-6-validation",
+      "value": "Quality validation complete. Compliance: 25%. Major issues: incorrect directory structure, missing documents, no memory usage, limited agent activity. Report at: epics/active/issue-6/QUALITY_VALIDATION_REPORT.md",
+      "namespace": "default",
+      "timestamp": 1752944563452
+    }
+  ]
+}

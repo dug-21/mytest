@@ -1,0 +1,327 @@
+name: "🚀 Feature Specification"
+description: "Detailed specification for a feature within an EPIC"
+title: "[FEATURE] "
+labels: ["feature", "specification", "hive-mind", "ready-for-stories"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <!-- workflow-type: feature -->
+        # 🚀 Feature Specification Template
+        
+        **Purpose:** Define a complete feature that's part of a larger EPIC. Features are broken down into user stories.
+        
+        **For junior developers:** Think of features as major chunks of functionality. For example, "User Registration" might be broken into features like "Email Signup", "Social Login", "Email Verification".
+        
+        ---
+  
+  - type: input
+    id: epic-reference
+    attributes:
+      label: "🔗 Parent EPIC"
+      description: "Link to the EPIC this feature belongs to (e.g., #123)"
+      placeholder: "#123"
+    validations:
+      required: true
+
+  - type: input
+    id: feature-name
+    attributes:
+      label: "📝 Feature Name"
+      description: "Clear, specific name for this feature"
+      placeholder: "Email-based user registration with verification"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: "📖 Feature Description"
+      description: "What does this feature do? Keep it focused and specific."
+      placeholder: |
+        This feature allows new users to create accounts using their email address. It includes:
+        • Email/password registration form
+        • Email verification workflow
+        • Welcome email sequence
+        • Basic profile setup
+        
+        It does NOT include social login or enterprise SSO (those are separate features).
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: "👥 User Stories"
+      description: "Who benefits and how? Use 'As a [user], I want [goal] so that [benefit]'"
+      placeholder: |
+        **Primary User Stories:**
+        
+        • As a new visitor, I want to sign up with my email and password so that I can access the platform quickly
+        
+        • As a new user, I want to receive a verification email so that I can confirm my account is secure
+        
+        • As a new user, I want to complete basic profile information so that I can personalize my experience
+        
+        • As a user, I want clear feedback during signup so that I know if there are any issues
+        
+        **Secondary User Stories:**
+        
+        • As an admin, I want to see new user registrations so that I can track growth
+        
+        • As a support agent, I want to help users with verification issues so that they can access their accounts
+      value: |
+        **Primary User Stories:**
+        
+        • As a 
+        
+        **Secondary User Stories:**
+        
+        • As a 
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "✅ Acceptance Criteria"
+      description: "Specific, testable requirements. What must be true for this feature to be 'done'?"
+      placeholder: |
+        **Functional Requirements:**
+        • User can enter email and password on registration form
+        • Email validation prevents invalid formats
+        • Password must meet security requirements (min 8 chars, etc.)
+        • Verification email sent within 30 seconds
+        • Verification link expires after 24 hours
+        • User redirected to welcome flow after verification
+        • Duplicate email addresses are rejected gracefully
+        
+        **Non-Functional Requirements:**
+        • Form loads in under 2 seconds
+        • Works on mobile devices (iOS/Android)
+        • Accessible to screen readers
+        • GDPR compliant data handling
+        • Form validates in real-time (as user types)
+        
+        **Error Handling:**
+        • Clear error messages for all failure cases
+        • Network errors handled gracefully
+        • User can retry failed actions
+      value: |
+        **Functional Requirements:**
+        • 
+        
+        **Non-Functional Requirements:**
+        • 
+        
+        **Error Handling:**
+        • 
+
+  - type: textarea
+    id: technical-approach
+    attributes:
+      label: "🔧 Technical Approach"
+      description: "High-level technical plan. How will this be implemented?"
+      placeholder: |
+        **Frontend:**
+        • React component with React Hook Form for validation
+        • Real-time validation with error display
+        • Loading states during submission
+        • Mobile-responsive design
+        
+        **Backend:**
+        • POST /api/users/register endpoint
+        • Email validation and duplicate checking
+        • Password hashing with bcrypt
+        • JWT token generation for verification
+        
+        **Email Service:**
+        • SendGrid integration for verification emails
+        • Email template with branded styling
+        • Tracking for delivery and open rates
+        
+        **Database:**
+        • User table with email, password_hash, verified_at
+        • Email verification token table
+        • Audit log for registration attempts
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "🔗 Dependencies & Prerequisites"
+      description: "What needs to be completed before this feature can be built?"
+      placeholder: |
+        **Must be completed first:**
+        • Database schema design and migration
+        • Email service setup (SendGrid account)
+        • Basic authentication middleware
+        • User model and API structure
+        
+        **Nice to have first:**
+        • Design system components (forms, buttons)
+        • Error handling patterns established
+        • Testing framework setup
+        
+        **External dependencies:**
+        • Legal approval for data collection
+        • GDPR compliance review
+        • Email domain reputation setup
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: "🚫 Out of Scope"
+      description: "What is explicitly NOT included in this feature?"
+      placeholder: |
+        **Not included:**
+        • Social login (Google, Facebook, etc.) - separate feature
+        • Two-factor authentication - future enhancement
+        • Enterprise SSO - separate feature
+        • Password reset flow - separate feature
+        • User profile editing - separate feature
+        • Email preference management - separate feature
+        
+        **Future considerations:**
+        • Advanced password requirements
+        • Account lockout after failed attempts
+        • Integration with CRM systems
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "🚨 Priority"
+      description: "How important is this feature within the EPIC?"
+      options:
+        - "🔥 Critical - Blocks other features"
+        - "🚀 High - Core functionality"
+        - "📈 Medium - Important but not blocking"
+        - "🔮 Low - Nice to have"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: "🧩 Estimated Complexity"
+      description: "How complex is this feature to implement?"
+      options:
+        - "🟢 Simple - 1-3 stories, straightforward"
+        - "🟡 Medium - 4-8 stories, some complexity"
+        - "🟠 Complex - 9-15 stories, many edge cases"
+        - "🔴 Very Complex - 15+ stories, high risk"
+    validations:
+      required: true
+
+  - type: input
+    id: estimated-effort
+    attributes:
+      label: "⏰ Estimated Effort"
+      description: "Best guess at development time (e.g., '2-3 sprints', '1 week', '20 story points')"
+      placeholder: "2 sprints (4 weeks)"
+
+  - type: checkboxes
+    id: required-roles
+    attributes:
+      label: "👤 Required Roles"
+      description: "What roles are needed to complete this feature?"
+      options:
+        - label: "Frontend Developer"
+        - label: "Backend Developer"
+        - label: "Full-Stack Developer"
+        - label: "UX/UI Designer"
+        - label: "QA Engineer"
+        - label: "DevOps Engineer"
+        - label: "Security Specialist"
+        - label: "Product Manager"
+        - label: "Technical Writer"
+
+  - type: textarea
+    id: testing-strategy
+    attributes:
+      label: "🧪 Testing Strategy"
+      description: "How will we ensure this feature works correctly?"
+      placeholder: |
+        **Unit Tests:**
+        • Form validation logic
+        • API endpoint functionality
+        • Email service integration
+        • Password hashing utilities
+        
+        **Integration Tests:**
+        • Complete registration flow
+        • Email verification workflow
+        • Error handling scenarios
+        • Database interactions
+        
+        **Manual Testing:**
+        • Cross-browser compatibility
+        • Mobile device testing
+        • Accessibility testing
+        • User experience validation
+        
+        **Performance Tests:**
+        • Form submission speed
+        • Email delivery time
+        • Database query performance
+
+  - type: textarea
+    id: success-metrics
+    attributes:
+      label: "📊 Success Metrics"
+      description: "How will we measure if this feature is successful?"
+      placeholder: |
+        **User Behavior Metrics:**
+        • Registration completion rate > 85%
+        • Email verification rate > 90%
+        • Time to complete signup < 3 minutes
+        • Error rate < 5%
+        
+        **Technical Metrics:**
+        • Form load time < 2 seconds
+        • API response time < 500ms
+        • Email delivery success rate > 98%
+        • Zero security incidents
+        
+        **Business Metrics:**
+        • New user signups increase by 30%
+        • Support tickets for registration < 5/week
+        • User satisfaction score > 4.0/5
+
+  - type: textarea
+    id: risks-mitigation
+    attributes:
+      label: "⚠️ Risks & Mitigation"
+      description: "What could go wrong and how will we handle it?"
+      placeholder: |
+        **Technical Risks:**
+        • Email delivery issues → Use reputable service + monitoring
+        • Performance problems → Load testing + optimization
+        • Security vulnerabilities → Code review + security audit
+        
+        **User Experience Risks:**
+        • High abandonment rate → A/B testing + user feedback
+        • Confusing error messages → User testing + iteration
+        • Mobile usability issues → Responsive design + device testing
+        
+        **Business Risks:**
+        • Low adoption rate → Marketing support + user education
+        • Spam registrations → CAPTCHA + rate limiting
+        • GDPR compliance issues → Legal review + privacy audit
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **📋 Story Breakdown**: This feature will be decomposed into user stories and tasks
+        2. **🏗️ Technical Design**: Detailed technical specifications will be created
+        3. **🎨 UI/UX Design**: Interface designs and user flows will be finalized
+        4. **📅 Sprint Planning**: Stories will be estimated and assigned to sprints
+        5. **🚀 Development**: Implementation begins with swarm coordination
+        
+        **For junior developers:** Don't worry if some technical details aren't perfect. The team will refine these during planning and implementation.
+        
+        **Auto-labels:** `feature`, `specification`, `hive-mind`, `ready-for-stories`

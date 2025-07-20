@@ -1,0 +1,295 @@
+name: "📚 User Story"
+description: "Individual user story ready for development"
+title: "[STORY] As a [user], I want [goal] so that [benefit]"
+labels: ["story", "ready-for-development", "hive-mind"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <!-- workflow-type: user-story -->
+        # 📚 User Story Template
+        
+        **Purpose:** Define a single piece of functionality from a user's perspective that can be completed in one sprint.
+        
+        **For junior developers:** User stories are the building blocks of features. They should be small enough to complete in a few days but valuable enough that users would notice them.
+        
+        ---
+  
+  - type: input
+    id: feature-reference
+    attributes:
+      label: "🔗 Parent Feature"
+      description: "Link to the feature this story belongs to (e.g., #123)"
+      placeholder: "#123"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: "📝 User Story"
+      description: "As a [user type], I want [functionality] so that [benefit/value]"
+      placeholder: "As a new user, I want to enter my email and password on a registration form so that I can create an account quickly and securely."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "✅ Acceptance Criteria"
+      description: "Specific, testable requirements (Given/When/Then format works well)"
+      placeholder: |
+        **Scenario 1: Successful registration**
+        • Given I am on the registration page
+        • When I enter a valid email and strong password
+        • And I click the "Sign Up" button
+        • Then I should see a success message
+        • And I should receive a verification email
+        • And I should be redirected to the email verification page
+        
+        **Scenario 2: Invalid email format**
+        • Given I am on the registration page
+        • When I enter an invalid email format (e.g., "notanemail")
+        • And I try to submit the form
+        • Then I should see an error message "Please enter a valid email address"
+        • And the form should not submit
+        
+        **Scenario 3: Weak password**
+        • Given I am on the registration page
+        • When I enter a password that doesn't meet requirements
+        • Then I should see password requirements and current status
+        • And the submit button should be disabled until requirements are met
+      value: |
+        **Scenario 1: [Happy path]**
+        • Given 
+        • When 
+        • Then 
+        
+        **Scenario 2: [Error case]**
+        • Given 
+        • When 
+        • Then 
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: "🏁 Definition of Done"
+      description: "What must be completed for this story to be considered 'done'?"
+      placeholder: |
+        **Development:**
+        • [ ] Code written and reviewed
+        • [ ] Unit tests written and passing
+        • [ ] Integration tests passing
+        • [ ] Code meets style guidelines
+        • [ ] No critical security vulnerabilities
+        
+        **Testing:**
+        • [ ] Manual testing completed
+        • [ ] Cross-browser testing (Chrome, Firefox, Safari)
+        • [ ] Mobile testing (iOS, Android)
+        • [ ] Accessibility testing
+        
+        **Documentation:**
+        • [ ] API documentation updated (if applicable)
+        • [ ] User-facing documentation updated
+        • [ ] Technical documentation for team
+        
+        **Deployment:**
+        • [ ] Feature deployed to staging
+        • [ ] QA approval received
+        • [ ] Ready for production deployment
+
+  - type: dropdown
+    id: story-points
+    attributes:
+      label: "📊 Story Points"
+      description: "Relative estimation of effort (use Fibonacci sequence)"
+      options:
+        - "1 - Trivial (few hours)"
+        - "2 - Small (half day)"
+        - "3 - Medium (1 day)"
+        - "5 - Large (2-3 days)"
+        - "8 - Very Large (1 week)"
+        - "13 - Too Big (needs splitting)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "🚨 Priority"
+      description: "How important is this story within the feature?"
+      options:
+        - "🔥 Critical - Must have"
+        - "🚀 High - Should have"
+        - "📈 Medium - Could have"
+        - "🔮 Low - Won't have (this sprint)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: "📋 Development Tasks"
+      description: "Break down the work into specific tasks"
+      options:
+        - label: "Create registration form component"
+        - label: "Add form validation logic"
+        - label: "Style form with design system"
+        - label: "Create API endpoint for registration"
+        - label: "Add database migration for users table"
+        - label: "Implement email validation"
+        - label: "Add password strength checking"
+        - label: "Create error handling and display"
+        - label: "Add loading states and feedback"
+        - label: "Write unit tests for form logic"
+        - label: "Write API tests for registration"
+        - label: "Add integration tests for full flow"
+        - label: "Test cross-browser compatibility"
+        - label: "Test mobile responsiveness"
+        - label: "Update API documentation"
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: "🔧 Technical Implementation Notes"
+      description: "Specific technical guidance for developers"
+      placeholder: |
+        **Frontend (React):**
+        • Use React Hook Form for form management
+        • Implement real-time validation with yup schema
+        • Add loading spinner during submission
+        • Use design system components (Button, Input, Alert)
+        
+        **Backend (Node.js/Express):**
+        • POST /api/users/register endpoint
+        • Validate email format and uniqueness
+        • Hash password with bcrypt (salt rounds: 12)
+        • Return JWT token for immediate authentication
+        
+        **Database:**
+        • Add unique constraint on email field
+        • Store password_hash, not plain password
+        • Add created_at and updated_at timestamps
+        
+        **Testing:**
+        • Mock email service in tests
+        • Test password hashing/verification
+        • Verify unique email constraint handling
+
+  - type: textarea
+    id: design-notes
+    attributes:
+      label: "🎨 Design & UX Notes"
+      description: "Specific design requirements and considerations"
+      placeholder: |
+        **Visual Design:**
+        • Follow design system for form styling
+        • Use primary button for submit action
+        • Display errors in red with icon
+        • Show password requirements dynamically
+        
+        **User Experience:**
+        • Validate email format on blur
+        • Show password strength meter
+        • Disable submit until form is valid
+        • Provide clear feedback for all states
+        
+        **Accessibility:**
+        • Proper form labels and ARIA attributes
+        • Keyboard navigation support
+        • Screen reader announcements for errors
+        • Color is not the only indicator of state
+        
+        **Mobile Considerations:**
+        • Use appropriate input types (email, password)
+        • Ensure touch targets are 44px minimum
+        • Consider mobile keyboard impact on layout
+
+  - type: textarea
+    id: test-scenarios
+    attributes:
+      label: "🧪 Test Scenarios"
+      description: "Specific scenarios to test (for QA and manual testing)"
+      placeholder: |
+        **Happy Path:**
+        1. User enters valid email and password → Registration succeeds
+        2. User receives verification email within 30 seconds
+        3. Form is responsive on mobile devices
+        
+        **Error Handling:**
+        1. Invalid email format → Clear error message shown
+        2. Password too weak → Requirements shown, submit disabled
+        3. Email already exists → Helpful error message
+        4. Network error → User can retry action
+        
+        **Edge Cases:**
+        1. Very long email address (100+ chars)
+        2. Special characters in password
+        3. Rapid form submission (double-click)
+        4. Form behavior when offline
+        
+        **Accessibility:**
+        1. Tab navigation through form fields
+        2. Screen reader announcements
+        3. High contrast mode compatibility
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "🔗 Dependencies"
+      description: "What must be completed before this story can start?"
+      placeholder: |
+        **Blocking Dependencies:**
+        • User database table created
+        • Email service configured
+        • Authentication middleware ready
+        
+        **Helpful Dependencies:**
+        • Design system components available
+        • Form validation patterns established
+        • Testing framework configured
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: "⚠️ Risks & Concerns"
+      description: "What could go wrong? How can we mitigate risks?"
+      placeholder: |
+        **Technical Risks:**
+        • Email service integration might be complex
+        • Form validation logic could become complicated
+        • Password hashing performance impact
+        
+        **UX Risks:**
+        • Form might be too long on mobile
+        • Error messages might be confusing
+        • Password requirements might be too strict
+        
+        **Mitigation:**
+        • Start with email service integration early
+        • User test form on mobile devices
+        • A/B test password requirements
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **📅 Sprint Planning**: Story is estimated and added to upcoming sprint
+        2. **👤 Assignment**: Developer is assigned to implement the story
+        3. **🚀 Development**: Implementation begins with swarm coordination
+        4. **🧪 Testing**: QA team tests against acceptance criteria
+        5. **✅ Review**: Story is reviewed and marked complete
+        
+        **For developers:** Use the swarm coordination tools to:
+        - Load context with `npx claude-flow@alpha hooks pre-task`
+        - Save progress with `npx claude-flow@alpha hooks post-edit`
+        - Coordinate with other agents throughout development
+        
+        **Auto-labels:** `story`, `ready-for-development`, `hive-mind`

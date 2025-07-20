@@ -1,0 +1,312 @@
+name: "🛠️ Technical Task"
+description: "Development task that doesn't directly deliver user value but enables features"
+title: "[TASK] "
+labels: ["task", "technical-debt", "infrastructure", "hive-mind"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <!-- workflow-type: technical-task -->
+        # 🛠️ Technical Task Template
+        
+        **Purpose:** Define technical work that enables user stories but doesn't directly deliver user value (infrastructure, refactoring, setup, etc.)
+        
+        **For junior developers:** Technical tasks are the foundation work that makes user stories possible. Examples: setting up databases, creating reusable components, fixing bugs, improving performance.
+        
+        ---
+  
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: "🔧 Task Type"
+      description: "What kind of technical work is this?"
+      options:
+        - "🏗️ Infrastructure - Servers, databases, deployment"
+        - "🧱 Foundation - Base components, utilities, frameworks"
+        - "🔧 Technical Debt - Refactoring, code cleanup"
+        - "🐛 Bug Fix - Fixing existing functionality"
+        - "⚡ Performance - Optimization and speed improvements"
+        - "🔒 Security - Security improvements and fixes"
+        - "🧪 Testing - Test infrastructure and coverage"
+        - "📚 Documentation - Technical documentation"
+        - "🔄 CI/CD - Build and deployment automation"
+        - "🛠️ Tooling - Developer experience improvements"
+    validations:
+      required: true
+
+  - type: input
+    id: related-story
+    attributes:
+      label: "🔗 Related Story/Feature (if applicable)"
+      description: "Link to user story or feature this enables (e.g., #123)"
+      placeholder: "#123 or N/A if standalone"
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: "📝 Task Description"
+      description: "What needs to be done and why?"
+      placeholder: |
+        **What:**
+        Set up automated database migrations for the user authentication system.
+        
+        **Why:**
+        Currently developers need to manually run SQL scripts when deploying, which is error-prone and slows down releases. Automated migrations will enable safer, faster deployments and better collaboration.
+        
+        **Context:**
+        We're building user registration features (#123) and need a reliable way to manage database schema changes across development, staging, and production environments.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "✅ Acceptance Criteria"
+      description: "Specific, testable requirements for completion"
+      placeholder: |
+        **Functional Requirements:**
+        • Migration files can be created with a CLI command
+        • Migrations run automatically on deployment
+        • Current migration status is trackable
+        • Rollback capability for failed migrations
+        • Works across dev, staging, and production environments
+        
+        **Technical Requirements:**
+        • Uses [specific migration tool, e.g., Knex.js, Prisma]
+        • Integrates with existing CI/CD pipeline
+        • Migration history stored in database
+        • Proper error handling and logging
+        
+        **Success Criteria:**
+        • Developers can create and test migrations locally
+        • Zero manual SQL execution needed for deployments
+        • Migration process documented for team
+        • All existing tables migrated to new system
+      value: |
+        **Functional Requirements:**
+        • 
+        
+        **Technical Requirements:**
+        • 
+        
+        **Success Criteria:**
+        • 
+
+  - type: textarea
+    id: technical-approach
+    attributes:
+      label: "🔧 Technical Approach"
+      description: "How will this be implemented? Include architecture decisions."
+      placeholder: |
+        **Implementation Plan:**
+        1. Choose migration tool (Knex.js for Node.js compatibility)
+        2. Create migrations table to track applied migrations
+        3. Set up CLI commands for creating/running migrations
+        4. Create initial migration for existing user table
+        5. Update deployment scripts to run migrations automatically
+        6. Add rollback mechanism for emergencies
+        
+        **Architecture Decisions:**
+        • Use Knex.js for database-agnostic migrations
+        • Store migration state in 'migrations' table
+        • Run migrations during container startup
+        • Use separate migration user with limited permissions
+        
+        **File Structure:**
+        ```
+        /migrations
+          /001_create_users_table.js
+          /002_add_email_verification.js
+        /scripts
+          /migrate.js
+          /rollback.js
+        ```
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: "🏁 Definition of Done"
+      description: "Checklist for task completion"
+      placeholder: |
+        **Development:**
+        • [ ] Migration system implemented and tested
+        • [ ] CLI commands created and documented
+        • [ ] Existing schema migrated to new system
+        • [ ] Integration with deployment pipeline
+        • [ ] Error handling and logging implemented
+        
+        **Testing:**
+        • [ ] Unit tests for migration logic
+        • [ ] Integration tests with database
+        • [ ] Tested on staging environment
+        • [ ] Rollback process verified
+        
+        **Documentation:**
+        • [ ] Migration creation guide written
+        • [ ] Deployment process updated
+        • [ ] Troubleshooting guide created
+        • [ ] Team trained on new process
+        
+        **Deployment:**
+        • [ ] Staging deployment successful
+        • [ ] Production deployment plan approved
+        • [ ] Monitoring and alerts configured
+
+  - type: dropdown
+    id: effort-estimate
+    attributes:
+      label: "⏰ Effort Estimate"
+      description: "How much work is involved?"
+      options:
+        - "🟢 Small (1-2 days)"
+        - "🟡 Medium (3-5 days)"
+        - "🟠 Large (1-2 weeks)"
+        - "🔴 Very Large (2+ weeks)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "🚨 Priority"
+      description: "How urgent is this task?"
+      options:
+        - "🔥 Critical - Blocking development"
+        - "🚀 High - Needed for upcoming features"
+        - "📈 Medium - Important but not urgent"
+        - "🔮 Low - Nice to have"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: subtasks
+    attributes:
+      label: "📋 Subtasks"
+      description: "Break down the work into smaller pieces"
+      options:
+        - label: "Research migration tools and choose best option"
+        - label: "Design migration file format and naming convention"
+        - label: "Create migrations table schema"
+        - label: "Implement migration runner logic"
+        - label: "Create CLI commands (create, run, rollback)"
+        - label: "Write initial migration for existing tables"
+        - label: "Update deployment scripts"
+        - label: "Add error handling and logging"
+        - label: "Create unit and integration tests"
+        - label: "Write documentation and guides"
+        - label: "Test on staging environment"
+        - label: "Train team on new process"
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "🔗 Dependencies"
+      description: "What must be completed before this task can start?"
+      placeholder: |
+        **Blocking Dependencies:**
+        • Database connection and configuration finalized
+        • Development environment setup complete
+        • CI/CD pipeline basic structure in place
+        
+        **Nice to Have:**
+        • Team agreement on database tool choices
+        • Staging environment available for testing
+        • Monitoring system set up for deployment tracking
+
+  - type: textarea
+    id: impact-analysis
+    attributes:
+      label: "📊 Impact Analysis"
+      description: "What will this task enable? What are the benefits?"
+      placeholder: |
+        **Enables:**
+        • Faster, safer database deployments
+        • Better collaboration on schema changes
+        • Consistent database state across environments
+        • Reduced manual errors in deployment process
+        
+        **Benefits:**
+        • Deployment time reduced from 30 minutes to 5 minutes
+        • Zero deployment rollbacks due to schema issues
+        • New developers can set up local environment automatically
+        • Database changes are tracked and reviewable
+        
+        **Risks if Not Done:**
+        • Continued manual deployment process
+        • Higher chance of production database issues
+        • Slower onboarding for new developers
+        • Difficulty coordinating database changes
+
+  - type: textarea
+    id: testing-plan
+    attributes:
+      label: "🧪 Testing Plan"
+      description: "How will you verify this works correctly?"
+      placeholder: |
+        **Unit Tests:**
+        • Migration runner logic
+        • CLI command parsing
+        • Error handling scenarios
+        • Migration status tracking
+        
+        **Integration Tests:**
+        • End-to-end migration process
+        • Rollback functionality
+        • Multiple environment testing
+        • Database state validation
+        
+        **Manual Testing:**
+        • Create and run migration on dev environment
+        • Test rollback process
+        • Verify integration with deployment pipeline
+        • Test with different database states
+        
+        **Performance Testing:**
+        • Large migration performance
+        • Rollback speed
+        • Impact on application startup time
+
+  - type: textarea
+    id: rollback-plan
+    attributes:
+      label: "🔄 Rollback Plan"
+      description: "How can this be undone if something goes wrong?"
+      placeholder: |
+        **If Implementation Fails:**
+        • Keep existing manual deployment process as backup
+        • Document how to bypass migration system temporarily
+        • Ensure rollback to previous deployment is possible
+        
+        **If Migration Fails in Production:**
+        • Automatic rollback to previous migration state
+        • Manual intervention procedures documented
+        • Database backup strategy before major migrations
+        • Alert system for migration failures
+        
+        **Communication Plan:**
+        • Notify team before major migration changes
+        • Document any breaking changes
+        • Provide migration guides for local development
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ## 🤖 What happens next?
+        
+        1. **🔍 Technical Review**: Senior developers review approach and requirements
+        2. **📅 Sprint Planning**: Task is estimated and scheduled
+        3. **👤 Assignment**: Developer is assigned to implement the task
+        4. **🚀 Implementation**: Development begins with swarm coordination
+        5. **🧪 Testing**: Thorough testing on staging environment
+        6. **📚 Documentation**: Process documentation and team training
+        7. **🚀 Deployment**: Careful rollout to production
+        
+        **For developers:** Technical tasks often require extra coordination. Use swarm tools to:
+        - Share decisions with `npx claude-flow@alpha hooks notification`
+        - Coordinate with infrastructure changes
+        - Document learnings for future tasks
+        
+        **Auto-labels:** `task`, `technical-debt`, `infrastructure`, `hive-mind`
