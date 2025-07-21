@@ -1,7 +1,7 @@
 {
   "env": {
-    "CLAUDE_FLOW_AUTO_COMMIT": "false",
-    "CLAUDE_FLOW_AUTO_PUSH": "false",
+    "CLAUDE_FLOW_AUTO_COMMIT": "true",
+    "CLAUDE_FLOW_AUTO_PUSH": "true",
     "CLAUDE_FLOW_HOOKS_ENABLED": "true",
     "CLAUDE_FLOW_TELEMETRY_ENABLED": "true",
     "CLAUDE_FLOW_REMOTE_EXECUTION": "true",
@@ -33,6 +33,14 @@
       "Bash(eval *)"
     ]
   },
+   "training": {
+    "auto_learn": true,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "memory_window": 1000,
+    "pattern_threshold": 0.85,
+    "optimization_interval": 100
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -40,7 +48,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat | jq -r '.tool_input.command // \"\"' | xargs -I {} npx claude-flow@alpha hooks pre-command --command \"{}\" --validate-safety true --prepare-resources true"
+            "command": "cat  < /dev/null |  jq -r '.tool_input.command // \"\"' | xargs -I {} npx claude-flow@alpha hooks pre-command --command \"{}\" --predict-performance true --suggest-optimization true --cache-analysis true"
+          },
+          {
+            "type": "command",
+            "command": "cat | jq -r '.tool_input.command // \"\"' | xargs -I {} npx claude-flow@alpha training pattern-learn --operation \"bash-command\" --context \"{}\" --predict true"
           }
         ]
       },
@@ -49,7 +61,20 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat | jq -r '.tool_input.file_path // .tool_input.path // \"\"' | xargs -I {} npx claude-flow@alpha hooks pre-edit --file \"{}\" --auto-assign-agents true --load-context true"
+            "command": "cat | jq -r '.tool_input.file_path // .tool_input.path // \"\"' | xargs -I {} npx claude-flow@alpha hooks pre-edit --file \"{}\" --auto-assign-agents true --predict-complexity true --suggest-approach true"
+          },
+          {
+            "type": "command",
+            "command": "cat | jq -r '.tool_input | @json' | xargs -I {} npx claude-flow@alpha analysis code-complexity --data \"{}\" --store-metrics true"
+          }
+        ]
+      },
+      {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat | jq -r '.tool_input.todos | @json' | xargs -I {} npx claude-flow@alpha coordination task-predict --todos \"{}\" --optimize-order true --suggest-agents true"
           }
         ]
       }
@@ -60,7 +85,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat | jq -r '.tool_input.command // \"\"' | xargs -I {} npx claude-flow@alpha hooks post-command --command \"{}\" --track-metrics true --store-results true"
+            "command": "cat | jq -r '{command: .tool_input.command, result: .tool_output.exit_code} | @json' | xargs -I {} npx claude-flow@alpha training pattern-learn --operation \"bash-result\" --data \"{}\" --update-predictor true"
+          },
+          {
+            "type": "command",
+            "command": "cat | jq -r '.tool_input.command // \"\"' | xargs -I {} npx claude-flow@alpha hooks post-command --command \"{}\" --analyze-efficiency true --store-pattern true --train-neural true"
           }
         ]
       },
@@ -69,7 +98,20 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat | jq -r '.tool_input.file_path // .tool_input.path // \"\"' | xargs -I {} npx claude-flow@alpha hooks post-edit --file \"{}\" --format true --update-memory true --train-neural true"
+            "command": "cat | jq -r '{file: (.tool_input.file_path // .tool_input.path), size: .tool_output.bytes_written} | @json' | xargs -I {} npx claude-flow@alpha training model-update --agent-type \"coder\" --operation-data \"{}\" --learn-patterns true"
+          },
+          {
+            "type": "command",
+            "command": "cat | jq -r '.tool_input.file_path // .tool_input.path // \"\"' | xargs -I {} npx claude-flow@alpha hooks post-edit --file \"{}\" --analyze-quality true --detect-patterns true --train-neural true"
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat | jq -r '{task: .tool_input.prompt, success: true} | @json' | xargs -I {} npx claude-flow@alpha training neural-train --data \"{}\" --model \"task-predictor\" --epochs 10"
           }
         ]
       }
@@ -79,11 +121,61 @@
         "hooks": [
           {
             "type": "command",
-            "command": "npx claude-flow@alpha hooks session-end --generate-summary true --persist-state true --export-metrics true"
+            "command": "npx claude-flow@alpha hooks session-end --analyze-performance true --generate-insights true --train-models true"
+          },
+          {
+            "type": "command",
+            "command": "npx claude-flow@alpha training neural-train --data \"session\" --model \"general-predictor\" --epochs 50 --optimize true"
+          },
+          {
+            "type": "command",
+            "command": "npx claude-flow@alpha optimization auto-tune --component \"all\" --apply-learnings true --persist true"
+          }
+        ]
+      }
+    ],
+    "user-prompt-submit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat | jq -r '.prompt' | xargs -I {} npx claude-flow@alpha analysis task-complexity --prompt \"{}\" --suggest-strategy true --predict-agents true"
           }
         ]
       }
     ]
+  },
+  "optimization": {
+    "auto_topology": true,
+    "performance_tracking": true,
+    "bottleneck_detection": true,
+    "adaptive_scheduling": true,
+    "pattern_recognition": {
+      "file_patterns": true,
+      "command_patterns": true,
+      "error_patterns": true,
+      "success_patterns": true
+    }
+  },
+  "neural": {
+    "models": {
+      "task-predictor": {
+        "type": "lstm",
+        "layers": [128, 64, 32],
+        "activation": "relu",
+        "optimizer": "adam"
+      },
+      "agent-selector": {
+        "type": "attention",
+        "heads": 8,
+        "dimensions": 256
+      },
+      "performance-optimizer": {
+        "type": "reinforcement",
+        "algorithm": "ppo",
+        "gamma": 0.99
+      }
+    }
   },
   "includeCoAuthoredBy": true,
   "enabledMcpjsonServers": [
