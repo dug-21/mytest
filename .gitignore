@@ -3,6 +3,11 @@ node_modules/
 .env*
 
 
+
+# gh-guided-dev configuration and state
+.gh-guided-dev/
+
+
 # Claude Flow generated files
 .claude/settings.local.json
 .mcp.json
@@ -27,6 +32,3 @@ claude-flow
 claude-flow.bat
 claude-flow.ps1
 hive-mind-prompt-*.txt
-
-# gh-guided-dev configuration and state
-.gh-guided-dev/
